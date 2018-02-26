@@ -13,6 +13,7 @@ Main purpose for this project was to have a fast way to interact with your datab
 
 - gpg >= 2
 - python >= 2.7 < 3
+- curl >= 7.50
 - perl 5 >= version 26 
 - neo4j >= 3.3
 
