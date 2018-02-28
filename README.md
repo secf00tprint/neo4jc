@@ -40,8 +40,6 @@ You will be asked for a password which GPG uses to store the credentials:
 
 ![set credentials](documentation/setcreds.gif "Set credentials")
 
-![test](documentation/preview.gif "Set credentials")
-
 ## Client start
 
 ```
