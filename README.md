@@ -38,7 +38,7 @@ Only use username and password without special characters
 
 You will be asked for a password which GPG uses to store the credentials:
 
-![set credentials](documentation/setcreds.gif "Set credentials")
+![set credentials](documentation/setcreds_small.gif "Set credentials")
 
 ## Client start
 
