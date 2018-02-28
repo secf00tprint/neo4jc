@@ -31,7 +31,7 @@ def print_connectmenu():
     print "Syntax for id1 ->\tid2 :\t id1 id2"
     print "Syntax for id1 -r->\tid2 :\t id1 id2 'rel'"
     print "Syntax for id1 -r->\tid2 :\t id1 id2 'rel' 'specialattr1: bla, specialattr2:blub'"
-    print "Escape quotes e.g. 'URL:\\\"https://github.com/andrew-d/static-binaries\\\"'"
+    print "Escape quotes e.g. 'URL:\\\"https://example.com\\\"'"
     print "Only Enter - back"
     params = raw_input(": ")
     if not params:

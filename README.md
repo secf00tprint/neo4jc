@@ -13,7 +13,6 @@ Main purpose for this project was to have a fast way to interact with your datab
 
 - gpg >= 2
 - python >= 2.7 < 3
-- curl >= 7.50
 - perl 5 >= version 26 
 - neo4j >= 3.3
 
@@ -29,18 +28,124 @@ cpan Term::ReadKey
 ## Neo4j DB Authorization
 
 To setup authorization for scripts to database
-setup credentials with 
+configure credentials with 
 
 ```
 perl setcreds.pl
 ```
 
-only use username and password without special characters
+Only use username and password without special characters
 
-You will be asked for a password which GPG uses to store the credentials.
+You will be asked for a password which GPG uses to store the credentials:
+
+![set credentials](documentation/setcreds.gif "Set credentials")
+
+![test](documentation/preview.gif "Set credentials")
 
 ## Client start
 
 ```
 python neoc.py
+```
+
+## Example
+
+```
+python neo4jc.py                                                      [±master ●●]
+------------------------------ MENU ------------------------------
+1. CREATE
+2. CONNECT
+3. UPDATE
+4. MOVE
+5. DELETE
+6. READ
+7. Exit
+-------------------------------------------------------------------
+Enter your choice [1-5]: 1
+------------------------------ CREATE ------------------------------
+Syntax:	 "name" [":label1:label2..."]
+Only Enter - back
+: "John Smith" ":Person"
+{"results":[{"columns":["n"],"data":[{"row":[{"name":"John Smith"}],"meta":[{"id":178,"type":"node","deleted":false}]}]}],"errors":[]}
+------------------------------ MENU ------------------------------
+1. CREATE
+2. CONNECT
+3. UPDATE
+4. MOVE
+5. DELETE
+6. READ
+7. Exit
+-------------------------------------------------------------------
+Enter your choice [1-5]: 1
+------------------------------ CREATE ------------------------------
+Syntax:	 "name" [":label1:label2..."]
+Only Enter - back
+: "Eve" ":Person"
+{"results":[{"columns":["n"],"data":[{"row":[{"name":"Eve"}],"meta":[{"id":133,"type":"node","deleted":false}]}]}],"errors":[]}
+------------------------------ MENU ------------------------------
+1. CREATE
+2. CONNECT
+3. UPDATE
+4. MOVE
+5. DELETE
+6. READ
+7. Exit
+-------------------------------------------------------------------
+Enter your choice [1-5]: 2
+------------------------------ CONNECT ------------------------------
+Syntax for id1 ->	id2 :	 id1 id2
+Syntax for id1 -r->	id2 :	 id1 id2 'rel'
+Syntax for id1 -r->	id2 :	 id1 id2 'rel' 'specialattr1: bla, specialattr2:blub'
+Escape quotes e.g. 'URL:\"https://example.com\"'
+Only Enter - back
+: 133 178 "KNOWS"
+{"results":[{"columns":["n","r","m"],"data":[{"row":[{"name":"Eve"},{},{"name":"John Smith"}],"meta":[{"id":133,"type":"node","deleted":false},{"id":153,"type":"relationship","deleted":false},{"id":178,"type":"node","deleted":false}]}]}],"errors":[]}
+------------------------------ MENU ------------------------------
+1. CREATE
+2. CONNECT
+3. UPDATE
+4. MOVE
+5. DELETE
+6. READ
+7. Exit
+-------------------------------------------------------------------
+Enter your choice [1-5]: 5
+------------------------------ DELETE ------------------------------
+n/N. Node
+r/R. Relationship
+Only Enter - back
+: n
+Syntax:	 id
+Only Enter - back
+: 178
+{"results":[{"columns":[],"data":[]}],"errors":[]}
+------------------------------ MENU ------------------------------
+1. CREATE
+2. CONNECT
+3. UPDATE
+4. MOVE
+5. DELETE
+6. READ
+7. Exit
+-------------------------------------------------------------------
+Enter your choice [1-5]: 5
+------------------------------ DELETE ------------------------------
+n/N. Node
+r/R. Relationship
+Only Enter - back
+: n
+Syntax:	 id
+Only Enter - back
+: 133
+{"results":[{"columns":[],"data":[]}],"errors":[]}
+------------------------------ MENU ------------------------------
+1. CREATE
+2. CONNECT
+3. UPDATE
+4. MOVE
+5. DELETE
+6. READ
+7. Exit
+-------------------------------------------------------------------
+Enter your choice [1-5]: 7
 ```
